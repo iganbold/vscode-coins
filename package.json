@@ -1,5 +1,6 @@
 {
 	"name": "coins",
+	"publisher": "Itgel (Jack) Ganbold",
 	"displayName": "coins",
 	"description": "Cryptocurrency Prices",
 	"version": "0.0.1",
@@ -10,16 +11,52 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:coins.helloWorld"
+		"onCommand:coins.helloWorld",
+		"onView:coinsListView"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "coins-sidebar-view",
+					"title": "coins 🤩🚀🌚",
+					"icon": "assets/bitcoin-logo.svg"
+				}
+			]
+		},
 		"commands": [
 			{
 				"command": "coins.helloWorld",
-				"title": "Hello World"
+				"title": "coins"
+			},
+			{
+				"command": "coinsListView.refreshEntry",
+				"title": "Refresh",
+				"icon": {
+					"light": "assets/refresh-light.svg",
+					"dark": "assets/refresh-dark.svg"
+				}
 			}
-		]
+		],
+		"views": {
+			"coins-sidebar-view": [
+				{
+					"id": "coinsListView",
+					"name": "coins 🤩🚀🌚",
+					"icon": "assets/bitcoin-logo.svg"
+				}
+			]
+		},
+		"menus": {
+			"view/title": [
+				{
+					"command": "coinsListView.refreshEntry",
+					"when": "view == coinsListView",
+					"group": "navigation"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
@@ -41,5 +78,9 @@
 		"mocha": "^8.1.3",
 		"typescript": "^4.1.2",
 		"vscode-test": "^1.4.1"
+	},
+	"dependencies": {
+		"@types/node-fetch": "^2.5.7",
+		"node-fetch": "^2.6.1"
 	}
 }
