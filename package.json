@@ -1,14 +1,14 @@
 {
 	"name": "coins",
 	"publisher": "iganbold",
-	"displayName": "coins",
+	"displayName": "Coins",
 	"description": "Cryptocurrency Prices",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/iganbold/vscode-coins"
 	},
 	"icon": "assets/icon.png",
-	"version": "0.0.3",
+	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.52.0"
 	},
