@@ -1,0 +1,13 @@
+name: Deploy Coins Extention to VS Code Marketplace
+on:
+  push:
+    branches:
+    - master
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish
+        run: npm run deploy
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
