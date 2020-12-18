@@ -1,4 +1,4 @@
-name: Deploy Coins Extention to VS Code Marketplace
+name: Deploy Coins Extension to VS Code Marketplace
 on:
   push:
     branches:
@@ -9,11 +9,13 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@master
-      - name: Install and Build and Publish 🚀
+      - name: Build 🍳
         run: |
-          sudo npm install -g vsce
           sudo npm install
-          sudo vsce package
-          sudo vsce publish -p $VSCE_PAT
+          sudo npm install -g vsce
+      - name: Package 📦
+        run : sudo vsce package
+      - name: Publish 🚀
+        run: sudo vsce publish -p $VSCE_PAT
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
