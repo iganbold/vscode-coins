@@ -9,8 +9,9 @@ jobs:
     steps:
       - name: Install and Build and Publish
         run: |
+          npm install -g vsce
           npm install
-          npm run build
-          npm run deploy
+          vsce package
+          vsce publish -p $VSCE_PAT
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
