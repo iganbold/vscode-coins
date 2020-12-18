@@ -7,7 +7,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Publish
-        run: npm run deploy
+      - name: Install and Build and Publish
+        run: |
+          npm install
+          npm run build
+          npm run deploy
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
