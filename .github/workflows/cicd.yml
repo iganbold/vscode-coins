@@ -7,7 +7,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Install and Build and Publish
+      - name: Checkout 🛎️
+        uses: actions/checkout@master
+      - name: Install and Build and Publish 🚀
         run: |
           npm install -g vsce
           npm install
