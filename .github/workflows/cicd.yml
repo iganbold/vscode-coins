@@ -11,9 +11,9 @@ jobs:
         uses: actions/checkout@master
       - name: Install and Build and Publish 🚀
         run: |
-          npm install -g vsce
-          npm install
-          vsce package
-          vsce publish -p $VSCE_PAT
+          sudo npm install -g vsce
+          sudo npm install
+          sudo vsce package
+          sudo vsce publish -p $VSCE_PAT
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
