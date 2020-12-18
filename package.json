@@ -1,9 +1,14 @@
 {
 	"name": "coins",
-	"publisher": "Itgel (Jack) Ganbold",
+	"publisher": "iganbold",
 	"displayName": "coins",
 	"description": "Cryptocurrency Prices",
-	"version": "0.0.1",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/iganbold/vscode-coins"
+	},
+	"icon": "assets/icon.png",
+	"version": "0.0.3",
 	"engines": {
 		"vscode": "^1.52.0"
 	},
