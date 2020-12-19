@@ -2,14 +2,11 @@ import * as vscode from 'vscode';
 import fetch from 'node-fetch';
 
 export class CoinProvider implements vscode.TreeDataProvider<Coin> {
-    coins: vscode.ProviderResult<Coin[]>;
     
     private _onDidChangeTreeData: vscode.EventEmitter<Coin | undefined | null | void> = new vscode.EventEmitter<Coin | undefined | null | void>();
     readonly onDidChangeTreeData: vscode.Event<Coin | undefined | null | void> = this._onDidChangeTreeData.event;
 
-    constructor () {
-        // this.coins = Promise.resolve(this.getCoins());
-    }
+    constructor () {}
 
     async getCoins(): Promise<Coin[]> {
         try {
