@@ -8,7 +8,7 @@ export class CoinProvider implements vscode.TreeDataProvider<Coin> {
     readonly onDidChangeTreeData: vscode.Event<Coin | undefined | null | void> = this._onDidChangeTreeData.event;
 
     constructor () {
-        this.coins = Promise.resolve(this.getCoins());
+        // this.coins = Promise.resolve(this.getCoins());
     }
 
     async getCoins(): Promise<Coin[]> {
@@ -47,7 +47,7 @@ export class CoinProvider implements vscode.TreeDataProvider<Coin> {
 
     getChildren(element?: Coin|undefined): vscode.ProviderResult<Coin[]> { 
         if (element === undefined) {
-            return this.coins;
+            return Promise.resolve(this.getCoins());
           }
         
           return element.children;
